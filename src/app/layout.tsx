@@ -34,7 +34,7 @@ export default function RootLayout({
       >
         {/* <NextAuthProvider> */}
         {/* <ClientOnlyNavBar /> */}
-
+        <Toaster position="top-center" />
         <Suspense fallback={<Loading />}>{children}</Suspense>
         <Toaster position="top-right" />
         {/* </NextAuthProvider> */}
