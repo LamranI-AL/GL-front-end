@@ -46,7 +46,10 @@ export function AddVol() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="pl-72  w-full">
+        <Button
+          variant="outline"
+          className="w-1/3 bg-cyan-800 text-white border-cyan-700  hover:bg-cyan-700 hover:text-white"
+        >
           Add vol
         </Button>
       </DialogTrigger>

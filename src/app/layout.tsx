@@ -5,6 +5,7 @@ import NextAuthProvider from "@/providers/NextAuthProvider";
 import { Suspense } from "react";
 import Loading from "./loading";
 import { Toaster } from "react-hot-toast";
+import Header from "@/components/homePageCom/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -35,9 +36,8 @@ export default function RootLayout({
         {/* <NextAuthProvider> */}
         {/* <ClientOnlyNavBar /> */}
         <Toaster position="top-center" />
+        {/* <Header /> */}
         <Suspense fallback={<Loading />}>{children}</Suspense>
-        <Toaster position="top-right" />
-        {/* </NextAuthProvider> */}
       </body>
     </html>
   );

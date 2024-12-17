@@ -36,6 +36,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { vol } from "@/interfaces/Interfaces";
+import { AddVol } from "./AddVol";
 
 export const columns: ColumnDef<vol>[] = [
   {
@@ -182,6 +183,10 @@ export function Vol({ data }: Props) {
 
   return (
     <div className={`p-6  w-full ${isToggled ? "pl-72" : "pl-24"}  `}>
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-bold mb-6">Gestion des vols</h2>
+        <AddVol />
+      </div>
       <div className="flex items-center py-4">
         <Input
           placeholder="Filter aeroportDestination..."

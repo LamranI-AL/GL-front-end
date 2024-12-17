@@ -56,10 +56,9 @@ export async function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    // "/dfgdfgdfgfdsdfsdfsd",
     "/auth/:path*",
     "/api/:path*",
-    "/reservation",
+    // "/reservation",
     // "/admin",
   ],
 };

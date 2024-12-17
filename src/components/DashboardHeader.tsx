@@ -1,6 +1,11 @@
+// "use server";
+import { supabase } from "@/lib/supabase";
 import React from "react";
 
-const DashboardHeader: React.FC = () => {
+const DashboardHeader: React.FC = async () => {
+  const equipages = await supabase.from("equipage").select("*");
+  console.log("hey");
+  console.log(equipages.data?.length);
   const stats = [
     { title: "Réservations Totales", value: 1234, percentage: "+15%" },
     { title: "Vols Actifs", value: 42, percentage: "+8%" },

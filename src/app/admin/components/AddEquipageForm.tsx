@@ -36,7 +36,10 @@ export function AddEquipageForm() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline" className="">
+        <Button
+          variant="outline"
+          className="w-1/3 border-slate-700 text-slate-700 hover:bg-slate-700 hover:text-white"
+        >
           Add Equipage
         </Button>
       </DialogTrigger>

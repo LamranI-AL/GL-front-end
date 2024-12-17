@@ -13,6 +13,7 @@ import {
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 const SIDEBAR_ITEMS = [
   {
     heading: "Menu Principal",
@@ -90,7 +91,11 @@ const Sidebar = () => {
     >
       <div className="bg-gray-900 h-full">
         <div className="h-full bg-gray-800 bg-opacity-50 backdrop-blur-md p-4 flex flex-col border-r border-gray-700">
-          <nav className="mt-8 flex-grow overflow-y-auto">
+          <Link href={"/"}>
+            <Image src={"/LOGO.png"} alt="" width={100} height={100} />
+          </Link>
+
+          <nav className="mt-2 flex-grow overflow-y-auto">
             {SIDEBAR_ITEMS.map(({ heading, items }) => (
               <div key={heading} className="mb-6">
                 <h3 className="text-gray-400 font-medium mb-2 px-2">

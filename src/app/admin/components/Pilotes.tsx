@@ -36,7 +36,8 @@ import {
 } from "@/components/ui/table";
 import { Equipage, vol } from "@/interfaces/Interfaces";
 import { motion } from "framer-motion";
-import { AddEquipageForm } from "./addEquipageForm";
+import { AddEquipageForm } from "./AddEquipageForm";
+// import { AddEquipageForm } from "./addEquipageForm";
 
 const pilotsData = {
   pilotsActifs: 42,
@@ -174,9 +175,9 @@ export const columns: ColumnDef<Equipage>[] = [
     cell: ({ row }) => (
       <div className="lowercase">
         {row.getValue("isActive") == true ? (
-          <div>is active</div>
+          <div className="bg-green-800 text-gray-50">en service</div>
         ) : (
-          <div>is not active</div>
+          <div className="bg-red-800 text-gray-50">Libre</div>
         )}
       </div>
     ),
@@ -212,7 +213,7 @@ export const columns: ColumnDef<Equipage>[] = [
   },
 ];
 interface Props {
-  data: vol[];
+  data: Equipage[];
 }
 const Pilotes = ({ data }: Props) => {
   const isToggled = true;
@@ -253,39 +254,50 @@ const Pilotes = ({ data }: Props) => {
     >
       {/* Titre et bouton d'ajout */}
       <div className="flex justify-between items-center">
-        <h2 className="text-2xl font-bold mb-6">Gestion des Pilotes</h2>
-        <div className="w-1/3">
-          <AddEquipageForm />
-        </div>
+        <h2 className="text-2xl text-center font-bold mb-6">
+          Gestion des Pilotes
+        </h2>
       </div>
 
       {/* Statistiques globales */}
-      <div className="grid grid-cols-2 gap-6 mb-6">
+      <div className="grid grid-cols-3 gap-6 mb-6">
         {[
           {
             label: "Pilotes Actifs",
             value: pilotsData.pilotsActifs,
-            trend: "+5% ce mois",
+            // trend: "+5% ce mois",
             color: "text-green-400",
           },
           {
             label: "En Formation",
             value: pilotsData.enFormation,
-            trend: "2 certifications en cours",
-            color: "text-yellow-400",
+            // trend: "2 certifications en cours",
+            color: "text-yellow-700",
+          },
+          {
+            label: "Qualifications",
+            value: pilotsData.qualifications,
+            // trend: "+2% ce mois",
+            color: "text-slate-400",
           },
         ].map((stat, index) => (
-          <div key={index} className="bg-gray-50 rounded-lg p-4">
-            <h3 className="text-lg font-thin mb-4">{stat.label}</h3>
-            <p className="text-4xl font-bold mb-4">{stat.value}</p>
-            <p className="text-sm">
-              <span className={stat.color}>{stat.trend}</span>
+          <div key={index} className="bg-slate-100 rounded-lg p-4">
+            {/* <h3 className="text-lg font-thin mb-4">{stat.label}</h3> */}
+            <h3 className={`text-lg font-thin mb-4 ${stat.color}`}>
+              {stat.label}
+            </h3>
+            <p className={`text-4xl font-bold mb-4 ${stat.color}`}>
+              {stat.value}
             </p>
+            {/* <p className="text-sm">
+              <span className={stat.color}>{stat.trend}</span>
+            </p> */}
           </div>
         ))}
       </div>
       {/* tablae  */}
       <div>
+        <AddEquipageForm />
         <div className="flex items-center py-4">
           <Input
             placeholder="Filter par name..."

@@ -27,3 +27,12 @@ export interface Equipage {
   numeroLicence: string;
   isActive: boolean;
 }
+export interface Avion {
+  avion_id: number;
+  typeAvion: string;
+  capacite: Number;
+  creat_at: Date;
+  anneeFabrication: string;
+  model: string;
+  codeIATA: string;
+}

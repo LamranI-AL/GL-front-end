@@ -4,21 +4,21 @@ import { revalidatePath } from "next/cache";
 
 export const addEquipageServerSide = async (formData: FormData) => {
   const nomComplet = formData.get("nomComplet") as string;
-  const adress = formData.get("adress") as string;
+  const addresse = formData.get("adress") as string;
   //   const creat_at = formData.get("creat_at") as string;
   const telephone = formData.get("telephone") as string;
-  const founction = formData.get("founction") as string;
+  const fonction = formData.get("founction") as string;
   const numeroLicence = formData.get("numeroLicence") as string;
-  const isActive = formData.get("isActive") === "on"; // Checkbox returns "on" when checked
+  // const isActive = formData.get("isActive") === "on"; // Checkbox returns "on" when checked
 
   const newEquipage = {
     nomComplet,
-    adress,
+    addresse,
     // creat_at: new Date(creat_at),
     telephone,
-    founction,
+    fonction,
     numeroLicence,
-    isActive,
+    isActive: false,
   };
 
   try {
