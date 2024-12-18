@@ -143,6 +143,19 @@ export const columns: ColumnDef<Equipage>[] = [
     ),
   },
   {
+    accessorKey: "created_at",
+    header: "Créé le",
+    cell: ({ row }) =>
+      new Date(row.getValue("created_at")).toLocaleString("fr-FR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
+  },
+  {
     accessorKey: "numeroLicence",
     header: ({ column }) => {
       return (
@@ -166,22 +179,52 @@ export const columns: ColumnDef<Equipage>[] = [
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          className="flex items-center space-x-1"
         >
-          status
-          {/* <ArrowUpDown /> */}
+          Status
+          <ArrowUpDown className="h-4 w-4" />
         </Button>
       );
     },
     cell: ({ row }) => (
-      <div className="lowercase">
-        {row.getValue("isActive") == true ? (
-          <div className="bg-green-800 text-gray-50">en service</div>
+      <div>
+        {row.getValue("isActive") === true ? (
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800 border border-green-500">
+            <svg
+              className="w-4 h-4 mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-7 7a1 1 0 01-1.414 0l-3-3a1 1 0 111.414-1.414L9 11.586l6.293-6.293a1 1 0 011.414 0z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+            Libre
+          </span>
         ) : (
-          <div className="bg-red-800 text-gray-50">Libre</div>
+          <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-800 border border-red-500">
+            <svg
+              className="w-4 h-4 mr-1"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M14.707 14.707a1 1 0 01-1.414 0L10 11.414l-3.293 3.293a1 1 0 01-1.414-1.414L8.586 10 5.293 6.707a1 1 0 011.414-1.414L10 8.586l3.293-3.293a1 1 0 011.414 1.414L11.414 10l3.293 3.293a1 1 0 010 1.414z"
+                clipRule="evenodd"
+              ></path>
+            </svg>
+            En Service
+          </span>
         )}
       </div>
     ),
   },
+
   {
     id: "actions",
     enableHiding: false,
@@ -217,7 +260,9 @@ interface Props {
 }
 const Pilotes = ({ data }: Props) => {
   const isToggled = true;
-  const [searchQuery, setSearchQuery] = React.useState("");
+  // const [searchQuery, setSearchQuery] = React.useState("");
+  //FILTER LES PILOIT ACTIF
+
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

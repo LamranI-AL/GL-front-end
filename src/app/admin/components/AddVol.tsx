@@ -111,6 +111,7 @@ export function AddVol() {
               <Input
                 name="startDate"
                 type="datetime-local"
+                required
                 className="col-span-3"
               />
             </div>
@@ -121,6 +122,7 @@ export function AddVol() {
               <Input
                 name="endDate"
                 type="datetime-local"
+                required
                 className="col-span-3"
               />
             </div>

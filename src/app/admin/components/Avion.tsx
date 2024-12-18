@@ -41,11 +41,17 @@ export const avionColumns: ColumnDef<Avion>[] = [
     cell: ({ row }) => <div>{row.getValue("capacite")}</div>,
   },
   {
-    accessorKey: "creat_at",
-    header: "Date de Création",
-    cell: ({ row }) => (
-      <div>{new Date(row.getValue("creat_at")).toLocaleDateString()}</div>
-    ),
+    accessorKey: "created_at",
+    header: "Créé le",
+    cell: ({ row }) =>
+      new Date(row.getValue("created_at")).toLocaleString("fr-FR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
   },
   {
     accessorKey: "anneeFabrication",

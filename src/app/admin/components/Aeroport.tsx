@@ -64,10 +64,17 @@ export const columns: ColumnDef<Airport>[] = [
   //   cell: ({ row }) => row.getValue("vol_id"),
   // },
   {
-    accessorKey: "creat_at",
+    accessorKey: "created_at",
     header: "Créé le",
     cell: ({ row }) =>
-      new Date(row.getValue("creat_at")).toLocaleDateString("fr-FR"),
+      new Date(row.getValue("created_at")).toLocaleString("fr-FR", {
+        year: "numeric",
+        month: "2-digit",
+        day: "2-digit",
+        hour: "2-digit",
+        minute: "2-digit",
+        second: "2-digit",
+      }),
   },
   {
     accessorKey: "nom",

@@ -19,7 +19,6 @@ export function AddEquipageForm() {
   const addEquipageClientAction = async (formData: FormData) => {
     const nomComplet = formData.get("nomComplet") as string;
     const adress = formData.get("adress") as string;
-    // const creat_at = formData.get("creat_at") as string;
     const telephone = formData.get("telephone") as string;
     const founction = formData.get("founction") as string;
     const numeroLicence = formData.get("numeroLicence") as string;

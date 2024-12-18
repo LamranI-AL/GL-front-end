@@ -4,7 +4,7 @@ import { revalidatePath } from "next/cache";
 
 export const addAirportServerSide = async (formData: FormData) => {
   const nom = formData.get("nom") as string;
-  const ville = parseInt(formData.get("ville") as string, 10);
+  const ville = formData.get("ville") as string;
   const pays = formData.get("pays") as string;
   const capacitePassager = parseInt(formData.get("capacitePassager") as string);
 

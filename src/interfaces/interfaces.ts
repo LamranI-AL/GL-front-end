@@ -4,9 +4,11 @@ export interface vol {
   creat_at: Date;
   codeIATA: string;
   numVol: number;
-  date: Date;
+  startDate: Date;
+  endDate: Date;
   aeroportOrigin: string;
   aeroportDestination: string;
+  prixVol: number;
 }
 export interface Airport {
   aeroport_id: string;

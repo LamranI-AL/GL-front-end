@@ -1,49 +1,71 @@
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
+import { vol } from "@/interfaces/Interfaces";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { ChevronDownIcon } from "lucide-react";
-const Voyage = () => {
+
+interface Props {
+  vols: vol[];
+}
+
+const Voyage = ({ vols }: Props) => {
+  const formatedDate = (date: Date) => {
+    return new Date(date).toLocaleString("fr-FR", {
+      // year: "numeric",
+      // month: "2-digit",
+      // day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+  };
+
   return (
     <div>
-      <Card>
-        <CardContent>
-          <div className=" text-black  gap-4 items-center mx-56 p-1">
-            <div className=" flex flex-row items-center justify-between  w-full  p-3">
-              <div className="flex flex-col items-center justify-center">
-                <p className="font-medium mb-2">MARRAKECH</p>
-                <p className=" mb-2">11h00</p>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="flex flex-col items-center justify-center">
-                  <p>A partir de</p>
-                  <p className="">150 €</p>
-                </div>
-                <div className="h-0.5 w-[100px] bg-slate-400" />
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <p className="font-medium mb-2">PARIS</p>
-                <p className=" mb-2">15h00</p>
-              </div>
-            </div>
+      {vols.map((vol: vol) => {
+        return (
+          <Card key={vol.id}>
+            <CardContent>
+              <div className="text-black gap-4 items-center mx-56 p-10 m-10">
+                <div className="flex flex-row items-center justify-between w-full p-3">
+                  {/* Aéroport d'origine */}
+                  <div className="flex flex-col items-center justify-center">
+                    <p className="font-medium mb-2">{vol.aeroportOrigin}</p>
+                    <p className="mb-2">{formatedDate(vol.startDate)}</p>
+                  </div>
 
-            <div className=" flex flex-row items-center justify-between w-full p-3">
-              <div className="flex flex-col ">
-                <p>A partir de</p>
-                <p className="text-2xl font-bold ">150 €</p>
+                  {/* Prix */}
+                  <div className="flex flex-col items-center justify-center">
+                    <div className="flex flex-col items-center justify-center">
+                      <p>A partir de</p>
+                      <p className="">{vol.prixVol} €</p>
+                    </div>
+                    <div className="h-0.5 w-[100px] bg-slate-400" />
+                  </div>
+
+                  {/* Aéroport de destination */}
+                  <div className="flex flex-col items-center justify-center">
+                    <p className="font-medium mb-2">
+                      {vol.aeroportDestination}
+                    </p>
+                    <p className="mb-2">{formatedDate(vol.endDate)}</p>
+                  </div>
+                </div>
+
+                {/* Section Add to Cart */}
+                <div className="flex flex-row items-center justify-between  w-full p-3">
+                  <div>
+                    <Button
+                      variant="outline"
+                      className="text-white bg-blue-600 flex items-center justify-center"
+                    >
+                      Add To card
+                    </Button>
+                  </div>
+                </div>
               </div>
-              <div>
-                <Button
-                  variant="outline"
-                  className="text-white bg-blue-600 flex flex-col items-center justify-center"
-                >
-                  Add To card
-                </Button>
-              </div>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
+            </CardContent>
+          </Card>
+        );
+      })}
     </div>
   );
 };
