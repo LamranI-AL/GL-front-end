@@ -1,63 +1,106 @@
 import React from "react";
 // import { Card ,CardContent,CardHeader,CardTitle } from '../ui/card'
 // import { Button } from '../ui/button'
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Select } from "@/components/ui/select";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Label } from "@/components/ui/label";
+// import { Input } from "@/components/ui/input";
+// import { Select } from "@/components/ui/select";
+// import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 // import { Select } from '@radix-ui/react-select';
 const Coordonees = () => {
   return (
-    <div>
-      <Card>
-        <CardHeader>
-          <CardTitle>Le Voyage: Marrakech - Paris</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <div className="space-y-6">
-            <div>
-              <Label htmlFor="passager1-name">Passager 1</Label>
-              <div className="grid grid-cols-2 gap-4">
-                <Input
-                  id="passager1-Prenom"
-                  name="passager1-Prenom"
-                  placeholder="Prenom"
-                />
-                <Input
-                  id="passager1-name"
-                  name="passager1-name"
-                  placeholder="Name"
-                />
-                <Select id="passager1-gender" name="passager-gender">
-                  <option value="male">M</option>
-                  <option value="female">F</option>
-                </Select>
-              </div>
-            </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <Label htmlFor="passager1-email">Email</Label>
-                <Input
-                  type="email"
-                  id="passager1-email"
-                  name="passager1-email"
-                />
-              </div>
-              <div>
-                <Label htmlFor="passager1-phone">Phone</Label>
-                <Input type="tel" id="passager1-phone" name="passager1-phone" />
-              </div>
-            </div>
-            <div>
-              <Label htmlFor="passager1-email">Confirmer votre email</Label>
-              <Input type="email" id="passager1-email" name="passager1-email" />
-            </div>
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+        <h1 className="text-2xl font-bold text-center mb-4 text-gray-800">
+          Réservation
+        </h1>
+        <form
+          // action="/api/submitReservation"
+          // method="POST"
+          className="space-y-4"
+        >
+          <div>
+            <label
+              htmlFor="firstName"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Prénom :
+            </label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+            />
           </div>
-        </CardContent>
-        <div className="border-t border-slate-200 p-4">
-          <p className="text-sm text-slate-500">Les champs sont requis.</p>
-        </div>
-      </Card>
+          <div>
+            <label
+              htmlFor="lastName"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Nom :
+            </label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Email :
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Téléphone :
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="date"
+              className="block text-sm font-medium text-gray-700"
+            >
+              Date de réservation :
+            </label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-teal-500 focus:border-teal-500"
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full bg-teal-600 text-white py-2 px-4 rounded-md hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"
+          >
+            Soumettre
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

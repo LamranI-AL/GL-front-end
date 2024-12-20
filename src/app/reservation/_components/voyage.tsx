@@ -3,7 +3,7 @@ import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { vol } from "@/interfaces/Interfaces";
 import { Button } from "@/components/ui/button";
-import useCartStore from "@/_store/Store";
+import useCartStore, { useSearchStore } from "@/_store/Store";
 
 interface Props {
   vols: vol[];
@@ -16,11 +16,12 @@ const Voyage = ({ vols }: Props) => {
       minute: "2-digit",
     });
   };
+  const { volss } = useSearchStore();
   const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div>
-      {vols.map((vol: vol) => {
+      {volss.map((vol: vol) => {
         return (
           <Card key={vol.id}>
             <CardContent>

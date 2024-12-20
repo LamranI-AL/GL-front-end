@@ -1,7 +1,7 @@
 export interface vol {
   id: string;
   reservation_id: string;
-  creat_at: Date;
+  created_at: Date;
   codeIATA: string;
   numVol: number;
   startDate: Date;
@@ -13,7 +13,7 @@ export interface vol {
 export interface Airport {
   aeroport_id: string;
   vol_id: string;
-  creat_at: Date;
+  created_at: Date;
   nom: string;
   ville: number;
   pays: Date;
@@ -23,7 +23,7 @@ export interface Equipage {
   id: number;
   nomComplet: string;
   adress: string;
-  creat_at: Date;
+  created_at: Date;
   telephone: string;
   founction: string;
   numeroLicence: string;
@@ -33,7 +33,7 @@ export interface Avion {
   avion_id: number;
   typeAvion: string;
   capacite: Number;
-  creat_at: Date;
+  created_at: Date;
   anneeFabrication: string;
   model: string;
   codeIATA: string;

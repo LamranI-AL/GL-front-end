@@ -1,7 +1,8 @@
 import React from "react";
+import Coordonees from "../_components/coordonees";
 
 function page() {
-  return <div>hy</div>;
+  return <Coordonees />;
 }
 
 export default page;
