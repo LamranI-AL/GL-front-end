@@ -21,5 +21,5 @@ export const addVol = async (newVol: Airport) => {
     return;
   }
 
-  console.log("add new airoport successfuly:", data);
+  console.log("add new vol successfuly:", data);
 };

@@ -1,44 +1,22 @@
+import { vol } from "@/interfaces/Interfaces";
 import { create } from "zustand";
-// import { Employer } from "../interfaces/Interfaces";
 
-type SearchStoreType = {
-  currentSearch: string;
-  setCurrentSearch: (value: string) => void;
-};
+interface CartStore {
+  cart: vol[];
+  addToCart: (product: vol) => void;
+  removeFromCart: (productId: string) => void;
+}
 
-export const useSearchStore = create<SearchStoreType>((set) => ({
-  currentSearch: "",
-  setCurrentSearch: (value: string) =>
-    set((state) => ({ currentSearch: value })),
+const useCartStore = create<CartStore>((set) => ({
+  cart: [],
+  addToCart: (vol) =>
+    set((state) => ({
+      cart: [...state.cart, vol],
+    })),
+  removeFromCart: (productId) =>
+    set((state) => ({
+      cart: state.cart.filter((item) => item.id !== productId),
+    })),
 }));
 
-// import { Employer } from "./Interfaces";
-// import { GetEmployers } from "./GetEmployers";
-
-// type EmployerStoreType = {
-//   employers: Employer[];
-//   getActiveEmployer: () => void;
-//   getArchiveEmployer: () => void;
-// };
-
-// export const useEmployerStore = create<EmployerStoreType>((set, get) => ({
-//   employers: [],
-//   getActiveEmployer: async () => {
-//     const res: Employer[] = await GetEmployers().then((res) => res.data);
-//     set(() => ({
-//       employers: res.filter(
-//         (employer) =>
-//           employer.isArchive === false && employer.isRejected === false
-//       ),
-//     }));
-//   },
-//   getArchiveEmployer: async () => {
-//     const res: Employer[] = await GetEmployers().then((res) => res.data);
-//     set(() => ({
-//       employers: res.filter(
-//         (employer) =>
-//           employer.isArchive === true && employer.isRejected === false
-//       ),
-//     }));
-//   },
-// }));
+export default useCartStore;

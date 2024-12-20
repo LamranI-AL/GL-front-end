@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import Loading from "../loading";
 import Header from "@/components/homePageCom/Header";
 import { BreadcrumbDemo } from "./_components/breadCrum";
+import Panier from "./_components/panier";
 // import { ToggleSideBarWrapper } from "./toggleSidebar";
 // import Sidebar from "./components/Sidebar";
 
@@ -14,10 +15,13 @@ function AdminLayout({
     <div>
       {/* <Header /> */}
       <BreadcrumbDemo />
-      <div className="flex ">
-        {/* <Sidebar /> */}
-        <div className="flex-1 ">
+      {/* <Sidebar /> */}
+      <div className="flex mt-5" style={{ display: "flex" }}>
+        <div style={{ flex: 2 }}>
           <Suspense fallback={<Loading />}>{children}</Suspense>
+        </div>
+        <div style={{ flex: 1 }}>
+          <Panier />
         </div>
       </div>
     </div>

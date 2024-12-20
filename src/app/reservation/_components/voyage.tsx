@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { vol } from "@/interfaces/Interfaces";
 import { Button } from "@/components/ui/button";
+import useCartStore from "@/_store/Store";
 
 interface Props {
   vols: vol[];
@@ -10,13 +12,11 @@ interface Props {
 const Voyage = ({ vols }: Props) => {
   const formatedDate = (date: Date) => {
     return new Date(date).toLocaleString("fr-FR", {
-      // year: "numeric",
-      // month: "2-digit",
-      // day: "2-digit",
       hour: "2-digit",
       minute: "2-digit",
     });
   };
+  const addToCart = useCartStore((state) => state.addToCart);
 
   return (
     <div>
@@ -54,6 +54,7 @@ const Voyage = ({ vols }: Props) => {
                 <div className="flex flex-row items-center justify-between  w-full p-3">
                   <div>
                     <Button
+                      onClick={() => addToCart(vol)}
                       variant="outline"
                       className="text-white bg-blue-600 flex items-center justify-center"
                     >
