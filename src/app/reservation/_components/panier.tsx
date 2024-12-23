@@ -11,9 +11,9 @@ const Panier = () => {
   if (pathName === "/reservation") {
     nextPath = "/reservation/userAuth";
   } else if (pathName === "/reservation/userAuth") {
-    nextPath = "/reservation/coordonner";
-  } else if (pathName === "/reservation/coordonner") {
     nextPath = "/reservation/payement";
+    // } else if (pathName === "/reservation/coordonner") {
+    //   nextPath = "/reservation/payement";
   } else if (pathName === "/reservation/payement") {
     nextPath = "/reservation";
   }

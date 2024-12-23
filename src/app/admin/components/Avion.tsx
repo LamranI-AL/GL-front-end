@@ -20,7 +20,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Avion } from "@/interfaces/Interfaces";
+import { Avion } from "@/interfaces/interfaces";
 import { AddAvionForm } from "./addAvion";
 
 // Définition des colonnes pour l'interface Avion

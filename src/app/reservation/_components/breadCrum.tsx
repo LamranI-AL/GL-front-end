@@ -25,12 +25,12 @@ export function BreadcrumbDemo() {
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem>
+            {/* <BreadcrumbItem>
               <BreadcrumbLink href="/reservation/coordonner">
                 coordonnes
               </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            </BreadcrumbItem> */}
+            {/* <BreadcrumbSeparator /> */}
             <BreadcrumbItem>
               <BreadcrumbLink href="/reservation/payement">
                 payement
@@ -53,12 +53,12 @@ export function BreadcrumbDemo() {
               <BreadcrumbPage>Identification</BreadcrumbPage>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem>
+            {/* <BreadcrumbItem>
               <BreadcrumbLink href="/reservation/coordonner">
                 coordonnes
               </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            </BreadcrumbItem> */}
+            {/* <BreadcrumbSeparator /> */}
             <BreadcrumbItem>
               <BreadcrumbLink href="/reservation/payement">
                 payement
@@ -69,7 +69,7 @@ export function BreadcrumbDemo() {
       ) : (
         <div></div>
       )}
-      {currentPath.match("/reservation/coordonner") &&
+      {/* {currentPath.match("/reservation/coordonner") &&
       currentPath === "/reservation/coordonner" ? (
         <Breadcrumb>
           <BreadcrumbList>
@@ -96,7 +96,7 @@ export function BreadcrumbDemo() {
         </Breadcrumb>
       ) : (
         <div></div>
-      )}
+      )} */}
       {currentPath.match("/reservation/payement") &&
       currentPath === "/reservation/payement" ? (
         <Breadcrumb>
@@ -111,12 +111,12 @@ export function BreadcrumbDemo() {
               </BreadcrumbLink>
             </BreadcrumbItem>
             <BreadcrumbSeparator />
-            <BreadcrumbItem>
+            {/* <BreadcrumbItem>
               <BreadcrumbLink href="/reservation/coordonner">
                 coordonnes
               </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            </BreadcrumbItem> */}
+            {/* <BreadcrumbSeparator /> */}
             <BreadcrumbItem>
               <BreadcrumbPage>payement</BreadcrumbPage>
             </BreadcrumbItem>

@@ -3,8 +3,6 @@ import Loading from "../loading";
 import Header from "@/components/homePageCom/Header";
 import { BreadcrumbDemo } from "./_components/breadCrum";
 import Panier from "./_components/panier";
-// import { ToggleSideBarWrapper } from "./toggleSidebar";
-// import Sidebar from "./components/Sidebar";
 
 function AdminLayout({
   children,
@@ -13,9 +11,8 @@ function AdminLayout({
 }>) {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <BreadcrumbDemo />
-      {/* <Sidebar /> */}
       <div className="flex mt-5" style={{ display: "flex" }}>
         <div style={{ flex: 2 }}>
           <Suspense fallback={<Loading />}>{children}</Suspense>

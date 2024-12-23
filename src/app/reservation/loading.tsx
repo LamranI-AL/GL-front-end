@@ -1,8 +1,8 @@
 import React from "react";
-import Loading from "../loading";
+import Loader from "@/components/loader";
 
 type Props = {};
 
-export default function loading({}: Props) {
-  return <Loading />;
+export default function Loading({}: Props) {
+  return <Loader />;
 }

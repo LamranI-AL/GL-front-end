@@ -38,3 +38,14 @@ export interface Avion {
   model: string;
   codeIATA: string;
 }
+export interface passager {
+  username: string;
+  password: string;
+  nationalite: string;
+  dateNaissance: Date;
+  email: string;
+  telephone: string;
+  cin: string;
+  personne_type: string;
+  role: string;
+}
