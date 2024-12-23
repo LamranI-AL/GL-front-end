@@ -3,7 +3,7 @@ import React from "react";
 import { Button } from "../ui/button";
 // import Link from "next/link";
 import { useSearchStore } from "@/_store/Store";
-import { vol } from "@/interfaces/Interfaces";
+import { vol } from "@/interfaces/interfaces";
 import { getVolsComplet } from "@/_services/Vols";
 import { useRouter } from "next/navigation";
 

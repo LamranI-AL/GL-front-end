@@ -1,4 +1,5 @@
-import { Avion } from "@/interfaces/Interfaces";
+"use server";
+import { Avion } from "@/interfaces/interfaces";
 import { supabase } from "@/lib/supabase";
 
 export const getAvionsComplet = async () => {
@@ -10,6 +11,7 @@ export const getAvionsComplet = async () => {
   }
 
   console.log("avions Tables:", data);
+  return data;
 };
 export const addAvion = async (newAvion: Avion) => {
   const { data, error } = await supabase.from("avion").insert(newAvion);

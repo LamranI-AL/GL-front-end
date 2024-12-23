@@ -1,4 +1,5 @@
-import { vol } from "@/interfaces/Interfaces";
+"use server";
+import { vol } from "@/interfaces/interfaces";
 import { supabase } from "@/lib/supabase";
 
 export const getVolsComplet = async () => {

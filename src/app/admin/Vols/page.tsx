@@ -1,10 +1,9 @@
 import React from "react";
 import { Vol } from "../components/Vols";
-import { supabase } from "@/lib/supabase";
+import { getVolsComplet } from "@/_services/Vols";
 type Props = {};
 export default async function page({}: Props) {
-  const { data } = await supabase.from("vol").select("*");
-  // console.log(allVols);
+  const data = await getVolsComplet();
   return (
     <div className="pt-5">
       <Vol data={data as any} />

@@ -21,9 +21,6 @@ import {
 } from "react-icons/fa";
 import { MdCalendarToday, MdNotifications } from "react-icons/md";
 import { AiOutlineDollarCircle } from "react-icons/ai";
-import { supabase } from "@/lib/supabase";
-import { useEffect, useState } from "react";
-import { vol } from "@/interfaces/Interfaces";
 const reservationsData = [
   { month: "Jan", value: 130 },
   { month: "Fev", value: 160 },
@@ -31,15 +28,6 @@ const reservationsData = [
   { month: "Avr", value: 190 },
   { month: "Mai", value: 200 },
   { month: "Jun", value: 160 },
-];
-const popularDestinationsData = [
-  { destination: "Zagora", value: 355 },
-  { destination: "Rissani", value: 255 },
-  { destination: "Ouarzazate", value: 375 },
-  { destination: "Tingir", value: 235 },
-  { destination: "Tata", value: 195 },
-  { destination: "Agadir", value: 155 },
-  { destination: "kesh", value: 155 },
 ];
 interface chartDestination {
   destination: string;

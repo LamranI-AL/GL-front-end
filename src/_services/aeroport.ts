@@ -1,10 +1,9 @@
-import { Airport, vol } from "@/interfaces/Interfaces";
+"use server";
+import { Airport } from "@/interfaces/interfaces";
 import { supabase } from "@/lib/supabase";
 
-export const getVolsComplet = async () => {
-  const { data, error } = await supabase.from("vol").select(`
-      *
-    `);
+export const getAeroportComplet = async () => {
+  const { data, error } = await supabase.from("aeroport").select("*");
 
   if (error) {
     console.error("Error fetching related tables:", error);
@@ -12,9 +11,10 @@ export const getVolsComplet = async () => {
   }
 
   console.log("Related Tables:", data);
+  return data;
 };
-export const addVol = async (newVol: Airport) => {
-  const { data, error } = await supabase.from("vol").insert(newVol);
+export const addAeroport = async (newAeroport: Airport) => {
+  const { data, error } = await supabase.from("aeroport").insert(newAeroport);
 
   if (error) {
     console.error("Error adding new airoport:", error);

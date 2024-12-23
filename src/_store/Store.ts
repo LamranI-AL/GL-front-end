@@ -1,6 +1,5 @@
 import { getVolsComplet } from "@/_services/Vols";
-import { vol } from "@/interfaces/Interfaces";
-import { supabase } from "@/lib/supabase";
+import { vol } from "@/interfaces/interfaces";
 import { create } from "zustand";
 
 interface CartStore {
